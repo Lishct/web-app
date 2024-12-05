@@ -4,7 +4,7 @@ Monster list shows a list of monsters from Monster Hunter World:Iceborne. In my 
 
 ![4793-shocked](https://github.com/user-attachments/assets/9aeb7d6e-f398-46e2-8b94-f7cfd396dd56)
 
-Required dependencies are <sqlite3> & <express>
+Required dependencies are sqlite3 & express
 
 To run locally (The dependencies are required)
 Run cmd > type in node app.js > a message should appear saying <Server is running on http://localhost:3000> if done properly.
