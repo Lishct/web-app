@@ -1,4 +1,4 @@
-[harhar](https://github.com/user-attachments/assets/68c75383-b947-4ddb-8572-46a0af531bd2)
+![harhar](https://github.com/user-attachments/assets/68c75383-b947-4ddb-8572-46a0af531bd2)
 
 Monster list shows a list of monsters from Monster Hunter World:Iceborne. In my database I only added 15+ monsters in the list!\
 
