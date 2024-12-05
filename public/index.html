@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Monster List</title>
+</head>
+<body>
+    <h1>Monster List</h1>
+    <input type="text" id="search-bar" placeholder="Search for a monster..." />
+    <div id="monster-container"></div>
+    <script>
+        // Function to fetch and display monsters
+        function fetchMonsters() {
+            fetch('/api/monsters')
+                .then(response => response.json())
+                .then(data => {
+                    displayMonsters(data);
+                });
+        }
+
+        // Function to display monsters
+        function displayMonsters(monsters) {
+            const container = document.getElementById('monster-container');
+            container.innerHTML = ''; // Clear previous results
+            monsters.forEach(monster => {
+                const monsterDiv = document.createElement('div');
+                monsterDiv.innerHTML = `<h2>${monster.monster_name}</h2><p>${monster.species}</p><p>${monster.description}</p>`;
+                container.appendChild(monsterDiv);
+            });
+        }
+
+        // Function to filter monsters based on search input
+        function filterMonsters() {
+            const searchTerm = document.getElementById('search-bar').value.toLowerCase();
+            fetch('/api/monsters')
+                .then(response => response.json())
+                .then(data => {
+                    const filteredMonsters = data.filter(monster => 
+                        monster.monster_name.toLowerCase().includes(searchTerm)
+                    );
+                    displayMonsters(filteredMonsters);
+                });
+        }
+
+        // Event listener for the search bar
+        document.getElementById('search-bar').addEventListener('input', filterMonsters);
+
+        // Initial fetch of monsters
+        fetchMonsters();
+    </script>
+</body>
+</html>
